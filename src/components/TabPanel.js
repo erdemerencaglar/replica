@@ -7,14 +7,6 @@ import Box from "@mui/material/Box";
 import { usePacketStore } from "../store/store";
 import Slider from "@mui/material/Slider";
 
-const STANDARD_PAD_COST = 2.9;
-const SUPER_PAD_COST = 3.3;
-const SUPER_PLUS_PAD_COST = 3.7;
-const DAILY_PAD_COST = 1.9;
-const SUPER_DAILY_PAD_COST = 2;
-const MINI_TAMPON_COST = 3.3;
-const STANDARD_TAMPON_COST = 3.7;
-
 const marks = [
   {
     value: 0,
@@ -142,13 +134,14 @@ export default function BasicTabs() {
   const updateTotalCost = usePacketStore((s) => s.updateTotal);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
           centered
+          variant="fullWidth"
           textColor="primary"
           indicatorColor="primary"
         >
@@ -171,106 +164,94 @@ export default function BasicTabs() {
       </Box>
       <TabPanel value={value} index={0}>
         <Typography sx={{ textAlign: "left" }}>Standart Ped</Typography>
-        <Box sx={{ width: 600 }}>
-          <Slider
-            aria-label="Always visible"
-            defaultValue={0}
-            getAriaValueText={valuetext}
-            step={10}
-            marks={marks}
-            valueLabelDisplay="auto"
-            min={0}
-            max={60}
-            onChange={(e, val) => updateStandardPad(val * STANDARD_PAD_COST)}
-            onChangeCommitted={(e, newValue) => {
-              updateStandardPad(newValue * STANDARD_PAD_COST);
-              updateTotalCost(newValue * STANDARD_PAD_COST);
-            }}
-          />
-        </Box>
+        <Slider
+          aria-label="Always visible"
+          defaultValue={0}
+          getAriaValueText={valuetext}
+          step={10}
+          marks={marks}
+          valueLabelDisplay="auto"
+          min={0}
+          max={60}
+          onChange={(e, val) => updateStandardPad(val)}
+          onChangeCommitted={(e, newValue) => {
+            updateStandardPad(newValue);
+            updateTotalCost(newValue);
+          }}
+        />
 
         <Typography sx={{ textAlign: "left" }}>Süper Ped</Typography>
-        <Box sx={{ width: 600 }}>
-          <Slider
-            aria-label="Always visible"
-            defaultValue={0}
-            getAriaValueText={valuetext}
-            step={10}
-            marks={marks}
-            valueLabelDisplay="auto"
-            min={0}
-            max={60}
-            onChange={(e, val) => updateSuperPad(val * SUPER_PAD_COST)}
-            onChangeCommitted={(e, newValue) => {
-              updateSuperPad(newValue * SUPER_PAD_COST);
-              updateTotalCost(newValue * SUPER_PAD_COST);
-            }}
-          />
-        </Box>
+        <Slider
+          aria-label="Always visible"
+          defaultValue={0}
+          getAriaValueText={valuetext}
+          step={10}
+          marks={marks}
+          valueLabelDisplay="auto"
+          min={0}
+          max={60}
+          onChange={(e, val) => updateSuperPad(val)}
+          onChangeCommitted={(e, newValue) => {
+            updateSuperPad(newValue);
+            updateTotalCost(newValue);
+          }}
+        />
         <Typography sx={{ textAlign: "left" }}>Süper+ Ped</Typography>
-        <Box sx={{ width: 600 }}>
-          <Slider
-            aria-label="Always visible"
-            defaultValue={0}
-            getAriaValueText={valuetext}
-            step={10}
-            marks={marks}
-            valueLabelDisplay="auto"
-            min={0}
-            max={60}
-            onChange={(e, val) => updateSuperPlusPad(val * SUPER_PLUS_PAD_COST)}
-            onChangeCommitted={(e, newValue) => {
-              updateSuperPlusPad(newValue * SUPER_PLUS_PAD_COST);
-              updateTotalCost(newValue * SUPER_PLUS_PAD_COST);
-            }}
-          />
-        </Box>
+        <Slider
+          aria-label="Always visible"
+          defaultValue={0}
+          getAriaValueText={valuetext}
+          step={10}
+          marks={marks}
+          valueLabelDisplay="auto"
+          min={0}
+          max={60}
+          onChange={(e, val) => updateSuperPlusPad(val)}
+          onChangeCommitted={(e, newValue) => {
+            updateSuperPlusPad(newValue);
+            updateTotalCost(newValue);
+          }}
+        />
       </TabPanel>
 
       <TabPanel value={value} index={1}>
         <Typography sx={{ textAlign: "left" }}>Günlük Ped</Typography>
-        <Box sx={{ width: 600 }}>
-          <Slider
-            aria-label="Always visible"
-            defaultValue={0}
-            getAriaValueText={valuetext}
-            step={10}
-            marks={marksDaily}
-            valueLabelDisplay="auto"
-            min={0}
-            max={100}
-            onChange={(e, val) => updateDailyPad(val * DAILY_PAD_COST)}
-            onChangeCommitted={(e, newValue) => {
-              updateDailyPad(newValue * DAILY_PAD_COST);
-              updateTotalCost(newValue * DAILY_PAD_COST);
-            }}
-          />
-        </Box>
+        <Slider
+          aria-label="Always visible"
+          defaultValue={0}
+          getAriaValueText={valuetext}
+          step={10}
+          marks={marksDaily}
+          valueLabelDisplay="auto"
+          min={0}
+          max={100}
+          onChange={(e, val) => updateDailyPad(val)}
+          onChangeCommitted={(e, newValue) => {
+            updateDailyPad(newValue);
+            updateTotalCost(newValue);
+          }}
+        />
         <Typography sx={{ textAlign: "left" }}>Süper Günlük Ped</Typography>
-        <Box sx={{ width: 600 }}>
-          <Slider
-            aria-label="Always visible"
-            defaultValue={0}
-            getAriaValueText={valuetext}
-            step={10}
-            marks={marksDaily}
-            valueLabelDisplay="auto"
-            min={0}
-            max={100}
-            onChange={(e, val) =>
-              updateSuperDailyPad(val * SUPER_DAILY_PAD_COST)
-            }
-            onChangeCommitted={(e, newValue) => {
-              updateSuperDailyPad(newValue * SUPER_DAILY_PAD_COST);
-              updateTotalCost(newValue * SUPER_DAILY_PAD_COST);
-            }}
-          />
-        </Box>
+        <Slider
+          aria-label="Always visible"
+          defaultValue={0}
+          getAriaValueText={valuetext}
+          step={10}
+          marks={marksDaily}
+          valueLabelDisplay="auto"
+          min={0}
+          max={100}
+          onChange={(e, val) => updateSuperDailyPad(val)}
+          onChangeCommitted={(e, newValue) => {
+            updateSuperDailyPad(newValue);
+            updateTotalCost(newValue);
+          }}
+        />
       </TabPanel>
 
       <TabPanel value={value} index={2}>
         <Typography sx={{ textAlign: "left" }}>Mini Tampon</Typography>
-        <Box sx={{ width: 600 }}>
+        <Box sx={{ width: "100%" }}>
           <Slider
             aria-label="Always visible"
             defaultValue={0}
@@ -280,15 +261,15 @@ export default function BasicTabs() {
             valueLabelDisplay="auto"
             min={0}
             max={60}
-            onChange={(e, val) => updateMiniTampon(val * MINI_TAMPON_COST)}
+            onChange={(e, val) => updateMiniTampon(val)}
             onChangeCommitted={(e, newValue) => {
-              updateMiniTampon(newValue * MINI_TAMPON_COST);
-              updateTotalCost(newValue * MINI_TAMPON_COST);
+              updateMiniTampon(newValue);
+              updateTotalCost(newValue);
             }}
           />
         </Box>
         <Typography sx={{ textAlign: "left" }}>Standart Tampon</Typography>
-        <Box sx={{ width: 600 }}>
+        <Box sx={{ width: "100%" }}>
           <Slider
             aria-label="Always visible"
             defaultValue={0}
@@ -298,12 +279,10 @@ export default function BasicTabs() {
             valueLabelDisplay="auto"
             min={0}
             max={60}
-            onChange={(e, val) =>
-              updateStandardTampon(val * STANDARD_TAMPON_COST)
-            }
+            onChange={(e, val) => updateStandardTampon(val)}
             onChangeCommitted={(e, newValue) => {
-              updateStandardTampon(newValue * STANDARD_TAMPON_COST);
-              updateTotalCost(newValue * STANDARD_TAMPON_COST);
+              updateStandardTampon(newValue);
+              updateTotalCost(newValue);
             }}
           />
         </Box>

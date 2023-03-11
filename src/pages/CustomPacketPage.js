@@ -19,7 +19,7 @@ export function CustomPacketPage() {
         sx={{
           display: "flex",
           justifyContent: "space-around",
-          alignItems: "center",
+          alignItems: "flex-start",
         }}
       >
         <Grid
@@ -31,52 +31,41 @@ export function CustomPacketPage() {
             justifyContent: "center",
             alignItems: "center",
           }}
-          sm={12}
+          xs={12}
           md={5}
         >
-          <Grid
-            container
-            sx={{
-              width: "60vh",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "start",
-              alignItems: "flex-start",
-              p: "1vh",
-            }}
-          >
-            <Grid
-              container
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <Typography fontSize={"30px"} fontWeight={"bold"}>
-                Kendi Paketini Oluştur
-              </Typography>
-              <Link
-                href="/know-us/how-it-works"
-                sx={{ textDecoration: "none" }}
+          <Grid>
+            <Grid>
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
               >
-                <Typography fontSize={"15px"} color="primary">
-                  Nasıl Çalışır?
+                <Typography fontSize={"30px"} fontWeight={"bold"}>
+                  Kendi Paketini Oluştur
                 </Typography>
-              </Link>
+                <Link
+                  href="/know-us/how-it-works"
+                  sx={{ textDecoration: "none" }}
+                >
+                  <Typography fontSize={"15px"} color="primary">
+                    Nasıl Çalışır?
+                  </Typography>
+                </Link>
+              </Grid>
             </Grid>
-
-            <Typography
-              fontSize={"15px"}
-              sx={{ mt: "20px", textAlign: "left" }}
-            >
-              Tercih ve ihtiyaçların doğrultusunda seçeceğin ürünlerden ve
-              miktarlardan, sana özel bir paket oluşturalım.
-            </Typography>
-          </Grid>
-
-          <Grid item sx={{ width: "60vh" }} xs={0}>
-            <TabPanel />
+            <Grid>
+              <Typography
+                fontSize={"15px"}
+                sx={{ mt: "20px", textAlign: "left" }}
+              >
+                Tercih ve ihtiyaçların doğrultusunda seçeceğin ürünlerden ve
+                miktarlardan, sana özel bir paket oluşturalım.
+              </Typography>
+              <TabPanel />
+            </Grid>
           </Grid>
         </Grid>
 
@@ -128,6 +117,7 @@ export function CustomPacketPage() {
                   mb: "25px",
                   display: "flex",
                   p: "8px",
+                  boxShadow: "0 8px 10px #F0F0F0",
                 }}
               >
                 <AutorenewIcon color={"#666666"} />
