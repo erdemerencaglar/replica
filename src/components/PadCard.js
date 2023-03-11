@@ -193,7 +193,9 @@ export default function PadCard() {
       >
         {miniTampon || standardTampon ? (
           <Grid item sx={{ p: "1vh" }}>
-            <Typography fontSize={"20px"}>Tampon Paketleri</Typography>
+            <Typography fontSize={"20px"} sx={{ textAlign: "left" }}>
+              Tampon Paketleri
+            </Typography>
             {(() => {
               if (miniTampon && standardTampon) {
                 return (

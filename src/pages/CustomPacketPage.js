@@ -84,7 +84,6 @@ export function CustomPacketPage() {
             sx={{
               width: "45vh",
               borderRadius: "16px",
-              display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
               alignItems: "center",
@@ -129,7 +128,7 @@ export function CustomPacketPage() {
                   2 ayda bir gönderim
                 </Typography>
               </Grid>
-              <img src={packet} />
+              <img src={packet} alt="packet-pic" />
               <PadCard />
             </Box>
             <Button
